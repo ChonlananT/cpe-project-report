@@ -57,13 +57,24 @@
 \hspace{0.5in} กลุ่มของ tasks ที่สามารถ reuse ได้
 
 \section{AWX}
-\hspace{0.5in} AWX เป็นเว็บอินเตอร์เฟสสำหรับ Ansible ช่วยให้ผู้ใช้สามารถจัดการ Ansible playbooks และ inventories ผ่านเว็บเบราว์เซอร์ AWX ทำให้การจัดการโครงสร้างพื้นฐาน IT ด้วย Ansible นั้นง่ายขึ้นและสะดวกยิ่งขึ้น โดยส่วนสำคัญของ AWX ได้แก่
+\hspace{0.5in} AWX เป็นเว็บอินเตอร์เฟสสำหรับ Ansible ช่วยให้ผู้ใช้สามารถจัดการ Ansible playbooks และ inventories ผ่านเว็บเบราว์เซอร์ AWX ทำให้การจัดการโครงสร้างพื้นฐาน IT ด้วย Ansible นั้นง่ายขึ้นและสะดวกยิ่งขึ้น
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale=0.5]{awx.png}
+  \end{center}
+  \caption[Poem]{ตัวอย่างการแสดงผลของ AWX}
+  \label{fig:ansible_playbook}
+\end{figure}
+
+\hspace{0.5in} โดยส่วนสำคัญของ AWX ได้แก่
+
 
 \subsection{Dashboard}
 \hspace{0.5in} แสดงสถานะทั้งหมดของ AWX และการทำงานของ ansible เอาไว้โดยรวม เช่น จำนวน hosts จำนวน project หรือสถานะของงานที่เคยเรียกใช้ ว่าสำเร็จหรือไม่สำเร็จ
 
 \subsection{Inventory}
-\hspace{0.5in} ใช้สำหรับจัดกลุ่มเพื่อรวบรวม และจัดการ hosts ต่างๆ ที่จะต้องใช้งานเอาไว้ (Add เพิ่มได้)
+\hspace{0.5in} ใช้สำหรับจัดกลุ่มเพื่อรวบรวม และจัดการ hosts ต่างๆ ที่จะต้องใช้งานเอาไว้ โดยสามารถเพิ่มหรือจัดการ hosts เหล่านั้นเองได้
 
 \subsection{Projects}
 \hspace{0.5in} ใช้จัดการโค้ดของ ansible ที่จะใช้งาน ซึ่งคล้ายกับ git โดยจะเก็บ playbook เก็บ inventory และตัวแปรต่างๆที่เกี่ยวข้องเอาไว้
@@ -79,12 +90,6 @@
 
 \subsection{Jobs}
 \hspace{0.5in} แสดงผลลัพธ์และสถานะของงานนั้นๆที่เคยถูกเรียกใช้ทั้งหมด ว่าสำเร็จหรือไม่สำเร็จ หรือมี error เกิดขึ้น
-
-\subsubsection{Subsubsection 1 heading goes here}
-Subsubsection 1 text
-
-\subsubsection{Subsubsection 2 heading goes here}
-Subsubsection 2 text
 
 \section{Third section}
 Section 3 text. The dielectric constant\index{dielectric constant}
@@ -165,7 +170,7 @@ juxtaposition
 \fi
 }
 \begin{enumerate}
-  \item การตรวจสอบและความรู้ด้านเครือข่ายจากวิชา เครือข่ายคอมพิวเตอร์ (Computer Network 261335) 
+  \item ความรู้ด้านเครือข่ายจากวิชาเครือข่ายคอมพิวเตอร์ (Computer Network 261335) 
   \item ชุดคำสั่งการตั้งค่าและการตรวจสอบชุดคำสั่งทางด้านเครือข่ายจากวิชา ปฏิบัติการเครือข่ายคอมพิวเตอร์ (Computer Network Laboratory 261336)
 \end{enumerate}
 
@@ -175,5 +180,8 @@ Extracurricular knowledge used, applied, or integrated in this project
 ความรู้นอกหลักสูตรซึ่งถูกนำมาใช้หรือบูรณาการในโครงงาน
 \fi
 }
-
-อธิบายถึงความรู้ต่างๆ ที่เรียนรู้ด้วยตนเอง และแนวทางการนำความรู้เหล่านั้นมาใช้ในโครงงาน
+\begin{enumerate}
+  \item การทำงานของ ansible
+  \item การทำงานของ AWX
+\end{enumerate}
+\hspace{0.5in}อธิบายถึงความรู้ต่างๆ ที่เรียนรู้ด้วยตนเอง และแนวทางการนำความรู้เหล่านั้นมาใช้ในโครงงาน
