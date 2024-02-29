@@ -1,23 +1,56 @@
+\newcommand{\exinventory}{
+  mail.example.com\\
+
+  [webservers] \\
+  foo.example.com \\
+  bar.example.com \\
+  
+  [dbservers] \\
+  one.example.com \\
+  two.example.com \\
+  three.example.com}
+
 \chapter{\ifenglish Background Knowledge and Theory\else ทฤษฎีที่เกี่ยวข้อง\fi}
 
 การทำโครงงาน เริ่มต้นด้วยการศึกษาค้นคว้า ทฤษฎีที่เกี่ยวข้อง หรือ งานวิจัย/โครงงาน ที่เคยมีผู้นำเสนอไว้แล้ว ซึ่งเนื้อหาในบทนี้ก็จะเกี่ยวกับการอธิบายถึงสิ่งที่เกี่ยวข้องกับโครงงาน เพื่อให้ผู้อ่านเข้าใจเนื้อหาในบทถัดๆ ไปได้ง่ายขึ้น
 
 \section{Ansible}
-Ansible คือ Open Source Software ที่ทำหน้าที่เป็นเครื่องมือสำหรับการจัดการระบบ (IT automation) ที่ใช้เพื่อควบคุมและจัดการระบบต่างๆ บนเครือข่าย ใช้งานง่าย มีประสิทธิภาพ และมีความยืดหยุ่นสูง เขียนด้วยภาษา python และใช้ SSH (Secure Shell) ในการเชื่อมต่อกับระบบต่างๆ Ansible ทำงานโดยใช้ Playbook ซึ่งเป็นไฟล์ YAML (Yet Another Markup Language) ที่กำหนดชุดของ ta
-
+Ansible คือ Open Source Software ที่ทำหน้าที่เป็นเครื่องมือสำหรับการจัดการระบบ (IT automation) ที่ใช้เพื่อควบคุมและจัดการระบบต่างๆ บนเครือข่าย ใช้งานง่าย มีประสิทธิภาพ และมีความยืดหยุ่นสูง เขียนด้วยภาษา python และใช้ SSH (Secure Shell) ในการเชื่อมต่อกับระบบต่างๆ Ansible ทำงานโดยใช้ Playbook ซึ่งเป็นไฟล์ YAML (Yet Another Markup Language) ที่กำหนดชุดของ tasks ที่จะรันบนระบบปลายทาง \\
 รูปที่ \ref{fig:ansible_works} แสดงวิธีการทำงานของ Ansible
+
 \begin{figure}
   \begin{center}
-    \includegraphics[scale=0.7]{ansible-works.png}
+    \includegraphics[scale=0.55]{ansible-works.png}
   \end{center}
   \caption[Poem]{วิธีการทำงานของ Ansible}
   \label{fig:ansible_works}
 \end{figure}
 
 \subsection{Inventory}
-ไฟล์ที่ระบุรายการระบบปลายทางที่จะจัดการ
+ไฟล์ที่ระบุรายการระบบปลายทางที่จะจัดการ \\
+รูปที่ \ref{fig:inventory.ini} แสดงการเขียนไฟล์ Inventory.ini
+
+\begin{figure}
+  \centering
+  \fbox{
+     \parbox{.6\textwidth}{\exinventory}
+  }
+  \caption[Sample figure]{การเขียนไฟล์ Inventory.ini}
+  \label{fig:inventory.ini}
+\end{figure}
+
 \subsection{Playbook}
-ไฟล์ YAML ที่กำหนดชุดของ tasks ที่จะรันบนระบบปลายทาง
+ไฟล์ YAML ที่กำหนดชุดของ tasks ที่จะรันบนระบบปลายทาง \\
+รูปที่ \ref{fig:ansible_playbook} แสดงการเขียน Playbook
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[scale=0.9]{playbook.png}
+  \end{center}
+  \caption[Poem]{การเขียนไฟล์ playbook}
+  \label{fig:ansible_playbook}
+\end{figure}
+
 \subsection{Modules}
 โมดูล python ที่ใช้เพื่อดำเนินการจัดการ tasks ต่างๆบนระบบปลายทาง
 \subsection{Roles}
@@ -74,31 +107,16 @@ and $\varepsilon_\mathit{air}$ is the dielectric constant of air.
 
 % define a command that produces some filler text, the lorem ipsum.
 \newcommand{\loremipsum}{
-  \textit{Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-  minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-  aliquip ex ea commodo consequat. Duis aute irure dolor in
-  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-  culpa qui officia deserunt mollit anim id est laborum.}\par}
+  mail.example.com\\
 
-\begin{figure}
-  \centering
-
-  \fbox{
-     \parbox{.6\textwidth}{\loremipsum}
-  }
-
-  % To include an image in the figure, say myimage.pdf, you could use
-  % the following code. Look up the documentation for the package
-  % graphicx for more information.
-  % \includegraphics[width=\textwidth]{myimage}
-
-  \caption[Sample figure]{This figure is a sample containing \gls{lorem ipsum},
-  showing you how you can include figures and glossary in your report.
-  You can specify a shorter caption that will appear in the List of Figures.}
-  \label{fig:sample-figure}
-\end{figure}
+  [webservers] \\
+  foo.example.com \\
+  bar.example.com \\
+  
+  [dbservers] \\
+  one.example.com \\
+  two.example.com \\
+  three.example.com}
 
 Using \verb.\label. and \verb.\ref. commands allows us to refer to
 figures easily. If we can refer to Figures
