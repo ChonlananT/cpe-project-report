@@ -3,7 +3,17 @@
 การทำโครงงาน เริ่มต้นด้วยการศึกษาค้นคว้า ทฤษฎีที่เกี่ยวข้อง หรือ งานวิจัย/โครงงาน ที่เคยมีผู้นำเสนอไว้แล้ว ซึ่งเนื้อหาในบทนี้ก็จะเกี่ยวกับการอธิบายถึงสิ่งที่เกี่ยวข้องกับโครงงาน เพื่อให้ผู้อ่านเข้าใจเนื้อหาในบทถัดๆ ไปได้ง่ายขึ้น
 
 \section{Ansible}
-Ansible คือ Open Source Software ที่ทำหน้าที่เป็นเครื่องมือสำหรับการจัดการระบบ (IT automation) ที่ใช้เพื่อควบคุมและจัดการระบบต่างๆ บนเครือข่าย ใช้งานง่าย มีประสิทธิภาพ และมีความยืดหยุ่นสูง เขียนด้วยภาษา python และใช้ SSH (Secure Shell) ในการเชื่อมต่อกับระบบต่างๆ Ansible ทำงานโดยใช้ Playbook ซึ่งเป็นไฟล์ YAML (Yet Another Markup Language) ที่กำหนดชุดของ tasks ที่จะรันบนระบบปลายทาง โดยมีองค์ประกอบหลักดังนี้
+Ansible คือ Open Source Software ที่ทำหน้าที่เป็นเครื่องมือสำหรับการจัดการระบบ (IT automation) ที่ใช้เพื่อควบคุมและจัดการระบบต่างๆ บนเครือข่าย ใช้งานง่าย มีประสิทธิภาพ และมีความยืดหยุ่นสูง เขียนด้วยภาษา python และใช้ SSH (Secure Shell) ในการเชื่อมต่อกับระบบต่างๆ Ansible ทำงานโดยใช้ Playbook ซึ่งเป็นไฟล์ YAML (Yet Another Markup Language) ที่กำหนดชุดของ ta
+
+รูปที่ \ref{fig:ansible_works} แสดงวิธีการทำงานของ Ansible
+\begin{figure}
+  \begin{center}
+    \includegraphics[scale=0.7]{ansible-works.png}
+  \end{center}
+  \caption[Poem]{วิธีการทำงานของ Ansible}
+  \label{fig:ansible_works}
+\end{figure}
+
 \subsection{Inventory}
 ไฟล์ที่ระบุรายการระบบปลายทางที่จะจัดการ
 \subsection{Playbook}
