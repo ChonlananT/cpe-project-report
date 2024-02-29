@@ -105,19 +105,6 @@ and $\varepsilon_\mathit{air}$ is the dielectric constant of air.
 
 \section{About using figures in your report}
 
-% define a command that produces some filler text, the lorem ipsum.
-\newcommand{\loremipsum}{
-  mail.example.com\\
-
-  [webservers] \\
-  foo.example.com \\
-  bar.example.com \\
-  
-  [dbservers] \\
-  one.example.com \\
-  two.example.com \\
-  three.example.com}
-
 Using \verb.\label. and \verb.\ref. commands allows us to refer to
 figures easily. If we can refer to Figures
 \ref{fig:walrus} and \ref{fig:sample-figure} by name in the {\LaTeX}
@@ -128,24 +115,6 @@ even if the placement or ordering of the figures changes.
 % uses the package lscape to turn everything but the page number into
 % landscape orientation. Everything should be included within an
 % \afterpage{ .... } to avoid causing a page break too early.
-\afterpage{
-  \begin{landscape}
-  \begin{table}
-    \caption{Sample landscape table}
-    \label{tab:sample-table}
-
-    \centering
-
-    \begin{tabular}{c||c|c}
-        Year & A & B \\
-        \hline\hline
-        1989 & 12 & 23 \\
-        1990 & 4 & 9 \\
-        1991 & 3 & 6 \\
-    \end{tabular}
-  \end{table}
-  \end{landscape}
-}
 
 \section{Overfull hbox}
 
@@ -165,8 +134,9 @@ juxtaposition
 \fi
 }
 \begin{enumerate}
-  \item การตรวจสอบและความรู้ด้านเครือข่ายจากวิชา เครือข่ายคอมพิวเตอร์ (Computer Network 261335) 
-  \item ชุดคำสั่งการตั้งค่าและการตรวจสอบชุดคำสั่งทางด้านเครือข่ายจากวิชา ปฏิบัติการเครือข่ายคอมพิวเตอร์ (Computer Network Laboratory 261336)
+  \item การเข้าใช้เครือข่าย การจัดการระบบเครือข่ายและความรู้ด้านเครือข่ายจากวิชา เครือข่ายคอมพิวเตอร์ (Computer Network 261335) 
+  \item ชุดคำสั่งการตั้งค่าของระบบเครือข่าย การดูแลระบบเน็ตเวิร์คและการตรวจสอบชุดคำสั่งทางด้านเครือข่ายจากวิชา ปฏิบัติการเครือข่ายคอมพิวเตอร์ (Computer Network Laboratory 261336)
+  \item กระบวนการพัฒนาโปรแกรมจากวิชาวิศวกรรมซอฟต์แวร์ (Software Engineer 261361)
 \end{enumerate}
 
 \section{\ifenglish%
@@ -176,4 +146,7 @@ Extracurricular knowledge used, applied, or integrated in this project
 \fi
 }
 
-อธิบายถึงความรู้ต่างๆ ที่เรียนรู้ด้วยตนเอง และแนวทางการนำความรู้เหล่านั้นมาใช้ในโครงงาน
+\begin{enumerate}
+  \item การทำงานของ Ansible
+  \item การทำงานและวิธีใช้งาน Ansible AWX
+\end{enumerate}
