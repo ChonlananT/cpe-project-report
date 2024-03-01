@@ -12,13 +12,11 @@
 
 \chapter{\ifenglish Background Knowledge and Theory\else ทฤษฎีที่เกี่ยวข้อง\fi}
 
-\hspace{0.5in}การทำโครงงาน เริ่มต้นด้วยการศึกษาค้นคว้า ทฤษฎีที่เกี่ยวข้อง หรือ งานวิจัย/โครงงาน ที่เคยมีผู้นำเสนอไว้แล้ว ซึ่งเนื้อหาในบทนี้ก็จะเกี่ยวกับการอธิบายถึงสิ่งที่เกี่ยวข้องกับโครงงาน เพื่อให้ผู้อ่านเข้าใจเนื้อหาในบทถัดๆ ไปได้ง่ายขึ้น
-
 \section{Ansible}
 \hspace{0.5in} Ansible คือ Open Source Software ที่ทำหน้าที่เป็นเครื่องมือสำหรับการจัดการระบบ (IT automation) ที่ใช้เพื่อควบคุมและจัดการระบบต่างๆ บนเครือข่าย ใช้งานง่าย มีประสิทธิภาพ และมีความยืดหยุ่นสูง เขียนด้วยภาษา python และใช้ SSH (Secure Shell) ในการเชื่อมต่อกับระบบต่างๆ Ansible ทำงานโดยใช้ Playbook ซึ่งเป็นไฟล์ YAML (Yet Another Markup Language) ที่กำหนดชุดของ tasks ที่จะรันบนระบบปลายทาง \\
 รูปที่ \ref{fig:ansible_works} แสดงวิธีการทำงานของ Ansible
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[scale=0.55]{ansible-works.png}
   \end{center}
@@ -30,7 +28,7 @@
 \hspace{0.5in} ไฟล์ที่ระบุรายการระบบปลายทางที่จะจัดการ \\
 รูปที่ \ref{fig:inventory.ini} แสดงการเขียนไฟล์ Inventory.ini
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \fbox{
      \parbox{.6\textwidth}{\exinventory}
@@ -43,7 +41,7 @@
 \hspace{0.5in} ไฟล์ YAML ที่กำหนดชุดของ tasks ที่จะรันบนระบบปลายทาง \\
 รูปที่ \ref{fig:ansible_playbook} แสดงการเขียน Playbook
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[scale=0.9]{playbook.png}
   \end{center}
@@ -56,29 +54,29 @@
 \subsection{Roles}
 \hspace{0.5in} กลุ่มของ tasks ที่สามารถ reuse ได้
 
-\section{AWX}
-\hspace{0.5in} AWX เป็นเว็บอินเตอร์เฟสสำหรับ Ansible ช่วยให้ผู้ใช้สามารถจัดการ Ansible playbooks และ inventories ผ่านเว็บเบราว์เซอร์โดยไม่ต้องพึ่ง command line ทำให้การจัดการโครงสร้างพื้นฐาน IT ด้วย Ansible นั้นง่ายขึ้นและสะดวกยิ่งขึ้น 
+\section{Ansible AWX}
+\hspace{0.5in} Ansible AWX เป็นเว็บอินเตอร์เฟสสำหรับ Ansible ช่วยให้ผู้ใช้สามารถจัดการ Ansible playbooks และ inventories ผ่านเว็บเบราว์เซอร์โดยไม่ต้องพึ่ง command line ทำให้การจัดการโครงสร้างพื้นฐาน IT ด้วย Ansible นั้นง่ายขึ้นและสะดวกยิ่งขึ้น 
 อีกทั้งยังมี API ที่สามารถนำมาใช้พัฒนาเพิ่มเติมได้
 
 \begin{figure}[h]
   \begin{center}
     \includegraphics[scale=0.55]{awx.png}
   \end{center}
-  \caption[ตัวอย่างการแสดงผลของ AWX]{ตัวอย่างการแสดงผลของ AWX}
+  \caption[ตัวอย่างการแสดงผลของ Ansible AWX]{ตัวอย่างการแสดงผลของ Ansible AWX}
   \label{fig:ansible_playbook}
 \end{figure}
 
-\hspace{0.3in} โดยส่วนสำคัญของ AWX ได้แก่
+\hspace{0.3in} โดยส่วนสำคัญของ Ansible AWX ได้แก่
 
 
 \subsection{Dashboard}
-\hspace{0.5in} แสดงสถานะทั้งหมดของ AWX และการทำงานของ ansible เอาไว้โดยรวม เช่น จำนวน hosts จำนวน project หรือสถานะของงานที่เคยเรียกใช้ ว่าสำเร็จหรือไม่สำเร็จ
+\hspace{0.5in} แสดงสถานะทั้งหมดของ Ansible AWX และการทำงานของ Ansible เอาไว้โดยรวม เช่น จำนวน hosts จำนวน project หรือสถานะของงานที่เคยเรียกใช้ ว่าสำเร็จหรือไม่สำเร็จ
 
 \subsection{Inventory}
 \hspace{0.5in} ใช้สำหรับจัดกลุ่มเพื่อรวบรวม และจัดการ hosts ต่างๆ ที่จะต้องใช้งานเอาไว้ โดยสามารถเพิ่มหรือจัดการ hosts เหล่านั้นเองได้
 
 \subsection{Projects}
-\hspace{0.5in} ใช้จัดการโค้ดของ ansible ที่จะใช้งาน ซึ่งคล้ายกับ git โดยจะเก็บ playbook เก็บ inventory และตัวแปรต่างๆที่เกี่ยวข้องเอาไว้
+\hspace{0.5in} ใช้จัดการโค้ดของ Ansible ที่จะใช้งาน ซึ่งคล้ายกับ git โดยจะเก็บ playbook เก็บ inventory และตัวแปรต่างๆที่เกี่ยวข้องเอาไว้
 
 \subsection{Hosts}
 \hspace{0.5in} แสดงรายการ host ต่างๆที่เอาไว้ใช้งาน โดย hosts เหล่านี้จะถูกจัดเก็บอยู่ใน inventory ซึ่งจะแสดงว่า host แต่ละตัวนั้นถูกเก็บโดย inventory ไหนบ้าง
