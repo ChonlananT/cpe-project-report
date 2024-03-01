@@ -207,7 +207,7 @@
   \@listauthors{EN}{#1}{#2}%
 }
 
-\newcommand{\@acadyearBE}{2563}
+\newcommand{\@acadyearBE}{2567}
 \newcommand{\@acadyearAD}{2020}
 \newcounter{@acadyear}
 \newcommand{\acadyear}[1]{%
