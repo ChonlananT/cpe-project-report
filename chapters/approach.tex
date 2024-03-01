@@ -45,6 +45,6 @@
 \section{โครงสร้างการทำงาน}
 \hspace{0.5in} การทำงานของ Web Application จะเป็นการใช้ AWX API มาแสดงผลบน Web Application ที่สร้างขึ้นมาโดยจะมีฟังก์ชันหลักๆดังนี้
 \begin{itemize}
-  \item Configuration: โดยผู้ใช้จะไม่ต้องสร้าง Templates ขึ้นมาเองเนื่องจาก Templates นั้นถูกสร้างแบบสำเร็จรูปไว้เรียบร้อยแล้วใน Ansible AWX โดยผู้ใช้จะทำเพียงแค่เลือก Templates ที่ผู้ใช้ต้องการจัดการและกรอกข้อมูล Hosts และ Configuration ต่างๆใน Web Application จากนั้น Web Application จะนำข้อมูลที่ผู้ใช้กรอกส่งไปยัง Ansible AWX เพื่อให้ Ansible AWX รับคำสั่งและทำตามคำสั่งเหล่านั้นในอุปกรณ์เน็ตเวิร์คที่ผู้ใช้ได้กำหนดไว้
-  \item Verification: 
+  \item Configuration: ผู้ใช้สามารถเลือก Templates ที่ต้องการผ่าน Web Application โดยไม่จำเป็นต้องสร้าง Templates ขึ้นมาเองเนื่องจาก Templates นั้นถูกสร้างแบบสำเร็จรูปไว้เรียบร้อยแล้วใน Ansible AWX โดยผู้ใช้จะทำเพียงแค่เลือก Templates ที่ผู้ใช้ต้องการจัดการและกรอกข้อมูล Hosts และ Configuration ต่างๆใน Web Application จากนั้น Web Application จะนำข้อมูลที่ผู้ใช้กรอกส่งไปยัง Ansible AWX เพื่อให้ Ansible AWX รับคำสั่งและทำตามคำสั่งเหล่านั้นในอุปกรณ์เน็ตเวิร์คที่ผู้ใช้ได้กำหนดไว้
+  \item Verification: ผู้ใช้สามารถตรวจสอบความถูกต้องได้จาก Templates ประเภท Verification ได้ ผ่าน Web Application ซึ่งจะตรวจสอบโดยใช้ Verify Configuration Commmands ต่างๆ เช่น show running-config, show vlan, show startup-config หรือ show interfaces เป็นต้น โดยคำสั่งเหล่านี้จะถูกเรียกใช้บน Ansible AWX ที่จะรับคำสั่งมาจาก Web Application นั้นอีกที ออกมาเป็นไฟล์ประเภท json ซึ่งจะนำมา filter เฉพาะส่วนที่ต้องการ และเปรียบเทียบความถูกต้องกับไฟล์ json ของ Web Application ซึ่งไฟล์ json ของ Web Application ไม่ได้เรียกใช้ Verify Configuration Commmands โดยตรง แต่จะได้จากระบบตรวจสอบความถูกต้องจาก Web Application ที่โปรแกรมขึั้นมาเอง
 \end{itemize}
