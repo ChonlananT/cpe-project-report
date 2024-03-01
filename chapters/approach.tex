@@ -20,16 +20,17 @@
 \section{การออกแบบ}
 
 \subsection{Ansible}
-\hspace{0.5in} Ansible เป็น Open Source Software Automation Tool ที่ใช้ YAML syntax ในการเขียน Playbook ข้อดีของการใช้ Ansible ในการออกแบบมีดังนี้ 
+\hspace{0.5in} Ansible เป็น Open Source Software Automation Tool ที่ใช้ YAML syntax ในการเขียน Playbook เพื่อทำการตั้งค่าอุปกรณ์เครือข่าย ข้อดีของการใช้ Ansible ในการออกแบบมีดังนี้ 
 \begin{itemize}
   \item ใช้งานง่าย: Ansible เขียนด้วย YAML syntax เข้าใจง่าย
   \item Agentless: ไม่จำเป็นต้องติดตั้ง agent บนเครื่อง Remote
   \item Powerful: รองรับการ Automation งานต่างๆ มากมาย
   \item Flexible: รองรับระบบปฏิบัติการหลายประเภท
 \end{itemize}
+\hspace{0.5in} แต่การใช้งานเพียงแค่ Ansible สำหรับการตั้งค่าเครือข่ายนั้นมีความค่อนข้างยุ่งยากเนื่องจากต้องทำงานผ่าน CLIs ซึ่งอาจเป็นเรื่องยากสำหรับผู้ใช้บางคน
 
 \subsection{AWX}
-\hspace{0.5in} AWX เป็น Open Source Web Application ที่ช่วยจัดการ Workflow ของ Ansible ได้อย่างมีประสิทธิภาพ ข้อดีของการใช้ AWX ในการจัดการอุปกรณ์เน็ตเวิร์ค มีดังนี้
+\hspace{0.5in} AWX เป็น Open Source Web Application ที่ช่วยจัดการ Workflow ของ Ansible โดยสั่งผ่าน GUI ดังนั้นโครงงานนี้จึงเลือกที่จะใช้ AWX เป็น GUI สำหรับควบตุมการทำงานของ Ansible ซึ่งข้อดีของการใช้ AWX ในการจัดการอุปกรณ์เครือข่าย มีดังนี้
 \begin{itemize}
   \item Centralized Management: ควบคุมจัดการ Jobs, Playbooks, Inventory และ Credentials ทั้งหมดจากจุดเดียว
   \item Role-Based Access Control: กำหนดสิทธิ์การเข้าถึงสำหรับผู้ใช้แต่ละคน
@@ -39,6 +40,11 @@
 \hspace{0.5in} การใช้ AWX ใน Web Application สำหรับ Automation จะช่วยติดตามสถานะการทำงาน จัดการกลุ่มเป้าหมาย (Inventory) ค้นหาและดูข้อมูลย้อนหลัง และสามารถตรวจสอบปัญหาต่างๆที่เกิดขึ้นในเมื่อเกิด Errors
 
 \subsection{Web Application}
-\hspace{0.5in} เนื่องจากการใช้งาน Ansible AWX นั้นมีข้อดีที่สามารถเข้าไปจัดการอุปกรณ์ได้ทีละหลายอุปกรณ์ แต่ยังมีข้อจำกัดคือ ไม่สามารถเช็คความถูกต้องเกี่ยวกับ .....(ว่านช่วยด้วยยยยย)..... จากการรัน Templates บน Ansible AWX จึงออกแบบ Web Application ที่สามารถสร้าง Ansible Playbooks และสามารถใช้ AWX API ในการดึงข้อมูลการจัดการอุปกรณ์เน็ตเวิร์ค ต่างๆที่อยู่ใน Ansible AWX มาแสดงใน Web Application และสามารถนำคำสั่งที่เขียนใน Ansible Playbooks มาตรวจสอบความถูกต้องว่าคำสั่งที่สั่ง ครบหรือไม่ หรือ เช็คว่าการทำงานของอุปกรณ์ เน็ตเวิร์คทำงานถูกต้องหรือไม่
+\hspace{0.5in} เนื่องจากการใช้งาน Ansible AWX นั้นมีข้อดีที่สามารถเข้าไปจัดการตั้งค่าอุปกรณ์ได้ทีละหลายอุปกรณ์ แต่ยังมีข้อจำกัดคือ ไม่สามารถเช็คความถูกต้องว่าผู้ใช้งานตั้งค่าอุปกรณ์เครือข่ายจากการรัน Templates บน Ansible AWX แล้วอุปกรณ์เครือข่ายนั้นทำงานได้ถูกต้องจริงหรือไม่ จึงทำการออกแบบ Web Application ที่มีระบบตรวจสอบความถูกต้อง และสามารถใช้ AWX REST API ในการดึงข้อมูลของอุปกรณ์เครือข่ายทำที่ได้ทำการตั้งค่าไว้ มาแสดงใน Web Application และสามารถนำคำสั่งที่เขียนใน Ansible Playbooks มาตรวจสอบความถูกต้องว่าคำสั่งที่สั่ง ครบหรือไม่ หรือ เช็คว่าการทำงานของอุปกรณ์ เน็ตเวิร์คทำงานถูกต้องหรือไม่
 
 \section{โครงสร้างการทำงาน}
+\hspace{0.5in} การทำงานของ Web Application จะเป็นการใช้ AWX API มาแสดงผลบน Web Application ที่สร้างขึ้นมาโดยจะมีฟังก์ชันหลักๆดังนี้
+\begin{itemize}
+  \item Configuration: โดยผู้ใช้จะไม่ต้องสร้าง Templates ขึ้นมาเองเนื่องจาก Templates นั้นถูกสร้างแบบสำเร็จรูปไว้เรียบร้อยแล้วใน Ansible AWX โดยผู้ใช้จะทำเพียงแค่เลือก Templates ที่ผู้ใช้ต้องการจัดการและกรอกข้อมูล Hosts และ Configuration ต่างๆใน Web Application จากนั้น Web Application จะนำข้อมูลที่ผู้ใช้กรอกส่งไปยัง Ansible AWX เพื่อให้ Ansible AWX รับคำสั่งและทำตามคำสั่งเหล่านั้นในอุปกรณ์เน็ตเวิร์คที่ผู้ใช้ได้กำหนดไว้
+  \item Verification: 
+\end{itemize}
